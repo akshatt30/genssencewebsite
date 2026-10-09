@@ -1,11 +1,14 @@
-export default function Logomark() {
+// Genessence "G" logomark, cropped to its artwork.
+// `tone="light"` is for light backgrounds (dark bars); `tone="dark"` for dark backgrounds (white bars).
+export default function Logomark({ tone = 'light', className = 'mark' }: { tone?: 'light' | 'dark'; className?: string }) {
+  const ink = tone === 'dark' ? '#ffffff' : '#0A0A0A';
   return (
-    <svg className="mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-      <rect x="1" y="1" width="30" height="30" rx="4" fill="#0B2545" />
-      <g className="mk-r">
-        <path d="M16 6v6M16 20v6M6 16h6M20 16h6" stroke="#5ad8ff" strokeWidth="1.6" strokeLinecap="round" />
-      </g>
-      <rect x="12.5" y="12.5" width="7" height="7" rx="1" transform="rotate(45 16 16)" fill="#00A9CE" />
+    <svg className={className} viewBox="7 7 48 44" fill="none" aria-hidden="true">
+      <rect x="7" y="7" width="9" height="44" fill={ink} />
+      <rect x="21" y="7" width="28" height="9" fill={ink} />
+      <rect x="31" y="25" width="24" height="8" fill="#01D0FF" />
+      <rect x="21" y="42" width="14" height="9" fill={ink} />
+      <rect x="42" y="37" width="9" height="14" fill={ink} />
     </svg>
   );
 }

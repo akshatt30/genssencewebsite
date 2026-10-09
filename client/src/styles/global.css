@@ -103,6 +103,7 @@ a{color:#00677f}a:hover{color:#0B2545}
 .core{position:absolute;left:50%;top:50%;width:136px;height:136px;margin:-68px 0 0 -68px;border-radius:50%;background:var(--navy);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:2px;box-shadow:0 20px 40px -18px rgba(8,26,51,.7);z-index:3;transition:transform .4s var(--ease)}
 .core:hover{transform:scale(1.05)}
 .core .ms{font-size:30px;color:var(--cyan2);margin-bottom:4px}
+.viz .core-logo{position:static;inset:auto;width:30px;height:28px;margin-bottom:6px;flex-shrink:0;overflow:hidden}
 .core-a{font-size:10px;font-weight:600;letter-spacing:.12em;color:var(--cyan2)}
 .core-b{font-size:12px;font-weight:600;color:#eaf1ff}
 .halo{position:absolute;left:50%;top:50%;width:136px;height:136px;margin:-68px 0 0 -68px;border-radius:50%;border:1px solid var(--cyan);animation:halo 3s var(--ease) infinite;z-index:2;pointer-events:none}
@@ -794,7 +795,7 @@ a{color:#00677f}a:hover{color:#0B2545}
 .inds{grid-template-columns:repeat(2,minmax(0,1fr))}
 .chip{font-size:11px;padding:7px 9px}
 .chip .ms{display:none}
-.core{width:108px;height:108px;margin:-54px 0 0 -54px}
+.core{width:108px;height:108px;margin:-54px 0 0 -54px}.viz .core-logo{width:24px;height:22px;margin-bottom:4px}
 .halo{width:108px;height:108px;margin:-54px 0 0 -54px}
 .flow{padding:20px}
 .track{flex-direction:column;align-items:flex-start;gap:14px}

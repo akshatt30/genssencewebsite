@@ -1,5 +1,6 @@
 import { useState, type CSSProperties } from 'react';
 import { NODES } from '../lib/content';
+import Logomark from './Logomark';
 
 const LINES = [
   { x1: 112, y1: 98, x2: 260, y2: 260 },
@@ -66,7 +67,7 @@ export default function Hero({ still }: { still: boolean }) {
               <div className="halo" />
               <div className="halo h2x" />
               <div className="core">
-                <span className="ms" aria-hidden="true">hub</span>
+                <Logomark tone="dark" className="core-logo" />
                 <span className="core-a">GENESSENCE</span>
                 <span className="core-b">Sourcing360</span>
               </div>
