@@ -14,6 +14,13 @@ npm run build    # builds client/dist
 npm start        # Express serves client/dist + API on http://localhost:4000
 ```
 
+## Deploy (Vercel)
+
+`vercel.json` builds the client and serves `client/dist` as static files. The API routes
+are Vercel serverless functions in `api/` (`/api/demo-request`, `/api/health`). They reuse
+`server/src/validate.js`, so validation stays identical to the Express server. Import the
+repo in Vercel with the root directory left as the repo root; no settings need changing.
+
 ## Where things live
 
 | What | Where |

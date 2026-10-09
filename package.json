@@ -2,7 +2,10 @@
   "name": "genessence",
   "private": true,
   "version": "1.0.0",
-  "workspaces": ["client", "server"],
+  "workspaces": [
+    "client",
+    "server"
+  ],
   "scripts": {
     "dev": "concurrently -n api,web -c cyan,magenta \"npm run dev -w server\" \"npm run dev -w client\"",
     "build": "npm run build -w client",
@@ -11,5 +14,9 @@
   },
   "devDependencies": {
     "concurrently": "^9.1.2"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=20"
   }
 }
