@@ -27,6 +27,9 @@ repo in Vercel with the root directory left as the repo root; no settings need c
 | --- | --- |
 | Copy and data (ARCH, STEPS, SUITE, NAV, NODES, BASE/LO/HI/MAXQ) | `client/src/lib/content.ts` |
 | One component per section, in page order | `client/src/components/` |
+| Pages: home and `/products/<slug>` | `client/src/pages/` |
+| Product page content (steps, capabilities, deep dive, related) | `client/src/lib/products.ts` |
+| Shared sample quote used across sections | `SAMPLE` in `client/src/lib/content.ts` |
 | Scroll reveal (`armed`, `seen-<section>`) | `client/src/hooks/useReveal.ts` |
 | Header progress / scroll-spy | `client/src/hooks/useScrollState.ts` |
 | `motion` flag + reduced-motion check | `client/src/lib/motion.ts` (`MOTION`) |
@@ -35,6 +38,8 @@ repo in Vercel with the root directory left as the repo root; no settings need c
 | SEO: title, description, OG, favicon, robots, sitemap | `client/index.html`, `client/public/` |
 
 ## TODO
+
+- **Case studies:** every product page shows two "Coming soon" slots (`CaseStudies` in `client/src/pages/ProductPage.tsx`). Replace them when real customer stories are available.
 
 - **Demo form backend:** `server/src/index.js` validates the request and logs it only. Wire it to the real destination (HubSpot, Formspree, email); look for `TODO(demo-form)`.
 - **Domain:** the canonical URL, OG URL, `robots.txt` and `sitemap.xml` assume `https://www.genessence.ai/`. Update them if the domain is different.

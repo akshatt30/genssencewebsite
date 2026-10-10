@@ -55,7 +55,7 @@ export const SAMPLE_GAP_PCT = ((SAMPLE_GAP / SAMPLE.quote) * 100).toFixed(1) + '
 
 export const SUITE: SuiteProduct[] = [
   {
-    id: 'truecost', name: 'TrueCost', href: '#products', cta: 'See TrueCost in Products',
+    id: 'truecost', name: 'TrueCost', href: '/products/truecost', cta: 'Explore TrueCost',
     intro: `The same ${money(SAMPLE.quote)} quote, run through TrueCost, the should-cost engine of the Genessence suite.`,
     out: `Negotiated against a ${money(BASE)} should-cost: a price you can defend, with the audit trail already written.`,
     steps: [
@@ -74,8 +74,7 @@ export const NAV = [
   { id: 'platform', label: 'Architecture', href: '#platform' },
   { id: 'sourcing', label: 'Sourcing360', href: '#sourcing' },
   { id: 'suite', label: 'Product Suite', href: '#suite' },
-  { id: 'industries', label: 'Industries', href: '#industries' },
-  { id: 'products', label: 'Products', href: '#products' }
+  { id: 'industries', label: 'Industries', href: '#industries' }
 ];
 
 export const NODES = [
@@ -86,6 +85,6 @@ export const NODES = [
 ];
 
 /** Values of every `data-sec` attribute on the page. */
-export const SECTIONS = ['hero', 'gap', 'platform', 'engines', 'sourcing', 'truecost', 'outcomes', 'industries', 'suite', 'demo'] as const;
+export const SECTIONS = ['hero', 'gap', 'platform', 'engines', 'sourcing', 'truecost', 'outcomes', 'industries', 'suite', 'demo', 'p-hero', 'p-how', 'p-cap', 'p-blog', 'p-cases', 'p-rel'] as const;
 export type SectionKey = (typeof SECTIONS)[number];
 

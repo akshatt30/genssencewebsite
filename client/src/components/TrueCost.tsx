@@ -22,7 +22,8 @@ const TIERS = [
   { c: '#9fb0cc', k: 'Tier 3 · Isolated Variance', t: 'Non-Qualifiable Drivers', d: 'Supplier IP adders, rush surcharges and unallocated SG&A markups, isolated and flagged instead of modelled.' }
 ];
 
-export default function TrueCost({ seen, still }: { seen: boolean; still: boolean }) {
+/** Full TrueCost walkthrough. Rendered on /products/truecost as its "How it works" section. */
+export default function TrueCost({ seen, still, id = 'how' }: { seen: boolean; still: boolean; id?: string }) {
   const [quote, setQuote] = useState(SAMPLE.quote);
   const [cu, setCu] = useState(still ? 1 : 0); // count-up progress 0..1
   const [bd, setBd] = useState(true);
@@ -63,17 +64,17 @@ export default function TrueCost({ seen, still }: { seen: boolean; still: boolea
   const qFmt = money(q);
 
   return (
-    <section className="sec tc" id="products" data-sec="truecost" data-nav="products">
+    <section className="sec tc" id={id} data-sec="truecost">
       <div className="wrap">
-        <div className="eyebrow rv" data-rv="truecost" style={{ color: '#5ad8ff', marginBottom: 14 }}>Products</div>
+        <div className="eyebrow rv" data-rv="truecost" style={{ color: '#5ad8ff', marginBottom: 14 }}>How it works</div>
         <div className="split">
           <div className="rv" data-rv="truecost">
             <span className="hero-badge">Hero Product · TrueCost</span>
-            <h2 className="h2" style={{ marginTop: 14 }}>What should this part actually cost?</h2>
+            <h2 className="h2" style={{ marginTop: 14 }}>From a supplier quote to a defensible target</h2>
           </div>
-          <p className="lead rv d1" data-rv="truecost" style={{ maxWidth: 460 }}>TrueCost is the should-cost engine of the Genessence suite. It isolates supplier quote markup by deconstructing manufacturing physics into transparent cost drivers, so you know the fair cost of a part, the corridor around it, and which lines of a quote sit outside it.</p>
+          <p className="lead rv d1" data-rv="truecost" style={{ maxWidth: 460 }}>Four steps turn a quote into a should-cost baseline and a line-by-line negotiation brief. Try it on the sample part below: drag the simulator, open the breakdown, and see how confident each part of the number is.</p>
         </div>
-        <div className="sub-h rv d2" data-rv="truecost">How it works</div>
+        <div className="sub-h rv d2" data-rv="truecost">The four steps</div>
         <div className="steps4 rv d2" data-rv="truecost">
           {HOW.map((s, i) => (
             <div key={s.t} className="st4"><div className="st4-h"><b>{i + 1}</b>{s.t}</div><p>{s.d}</p></div>

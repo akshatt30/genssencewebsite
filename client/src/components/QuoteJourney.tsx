@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { BASE, SAMPLE, SAMPLE_GAP, SUITE, money } from '../lib/content';
 
 const STATUS_QUO = [
@@ -71,7 +72,7 @@ export default function QuoteJourney({ seen, still }: { seen: boolean; still: bo
                 ))}
               </ol>
               <div className={'j-out ' + (still || jStep >= 4 ? 'done' : '')}><span className="ms" aria-hidden="true">verified</span><span>{cur.out}</span></div>
-              <a className="j-link" href={cur.href}>{cur.cta}<span className="ms" aria-hidden="true">arrow_forward</span></a>
+              <Link className="j-link" to={cur.href}>{cur.cta}<span className="ms" aria-hidden="true">arrow_forward</span></Link>
             </div>
           </div>
         </div>

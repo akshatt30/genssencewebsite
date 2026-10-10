@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { NAV } from '../lib/content';
 import type { ScrollState } from '../hooks/useScrollState';
 import Logomark from './Logomark';
+import HashLink from './HashLink';
 
 export default function Header({ scroll }: { scroll: ScrollState }) {
   const [menu, setMenu] = useState(false);
@@ -10,16 +11,16 @@ export default function Header({ scroll }: { scroll: ScrollState }) {
   return (
     <header className={'hdr ' + (scroll.scrolled ? 'scrolled' : '')}>
       <div className="wrap hdr-in">
-        <a className="brand" href="#top" aria-label="Genessence — back to top">
+        <HashLink className="brand" id="top" aria-label="Genessence — home">
           <Logomark />
           <span className="brand-t">
             <span className="wm">GEN<span className="ess">ESS</span>ENCE</span>
             <span className="tagl">Procurement Intelligence</span>
           </span>
-        </a>
+        </HashLink>
         <nav className="nav" aria-label="Primary">
           {NAV.map((n) => (
-            <a key={n.id} href={n.href} className={scroll.nav === n.id ? 'on' : ''}>{n.label}</a>
+            <HashLink key={n.id} id={n.href.slice(1)} className={scroll.nav === n.id ? 'on' : ''}>{n.label}</HashLink>
           ))}
         </nav>
         <div className="hdr-cta">
@@ -32,9 +33,9 @@ export default function Header({ scroll }: { scroll: ScrollState }) {
       {menu && (
         <div className="mnav">
           {NAV.map((n) => (
-            <a key={n.id} href={n.href} onClick={closeMenu}>
+            <HashLink key={n.id} id={n.href.slice(1)} onClick={closeMenu}>
               {n.label}<span className="ms" aria-hidden="true">arrow_forward</span>
-            </a>
+            </HashLink>
           ))}
           <a className="btn btn-p" href="#demo" onClick={closeMenu}>Request a Demo</a>
         </div>
