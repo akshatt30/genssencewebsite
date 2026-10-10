@@ -22,6 +22,8 @@ export const GROUPS: Record<GroupId, ProductGroup> = {
 export interface Product {
   slug: string;
   name: string;
+  /** Material Symbols icon for lists */
+  icon: string;
   group: GroupId;
   /** Card copy in the Product Suite grid */
   summary: string;
@@ -38,6 +40,7 @@ export interface Product {
 export const PRODUCTS: Product[] = [
   {
     slug: 'vendor-management',
+    icon: 'how_to_reg',
     name: 'Vendor Management',
     group: 'ops',
     summary: 'End-to-end onboarding: agreements, signatures and compliance verified against GST, PAN and government records, synced to ERP.',
@@ -71,6 +74,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     slug: 'rfq-management',
+    icon: 'request_quote',
     name: 'RFQ Management',
     group: 'ops',
     summary: 'Plants raise requests directly to sourcing with vendor quotes attached — negotiate against last buying price, or push into a live auction.',
@@ -104,6 +108,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     slug: 'supplier-allocation',
+    icon: 'pie_chart',
     name: 'Supplier Allocation',
     group: 'ops',
     summary: 'Splits order volume across qualified vendors based on cost — allocation driven by data, not habit or relationship.',
@@ -137,6 +142,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     slug: 'spend-management',
+    icon: 'bar_chart',
     name: 'Spend Management',
     group: 'ops',
     summary: 'Full spend visibility by category and vendor, plus forward business forecasts shared with vendors so they can plan capacity ahead.',
@@ -170,6 +176,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     slug: 'transport-management',
+    icon: 'local_shipping',
     name: 'Transport Management',
     group: 'logistics',
     summary: 'Carrier selection, live rate benchmarking, real-time shipment tracking and proof of delivery.',
@@ -203,6 +210,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     slug: 'should-cost-transport',
+    icon: 'route',
     name: 'Should-Cost Transport',
     group: 'logistics',
     summary: 'Flags freight cost inefficiencies using live data — negotiate logistics with hard numbers, not carrier quotes.',
@@ -236,6 +244,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     slug: 'exim',
+    icon: 'directions_boat',
     name: 'EXIM',
     group: 'logistics',
     summary: 'Digitizes customs, compliance, shipment tracking, CHA coordination and shipping lines into one connected import-export workflow.',
@@ -269,6 +278,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     slug: 'esg',
+    icon: 'eco',
     name: 'ESG',
     group: 'sustainability',
     summary: 'Tracks carbon and compliance at the vendor and asset level, built into the sourcing workflow rather than a separate reporting exercise.',
@@ -302,6 +312,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     slug: 'truecost',
+    icon: 'price_check',
     name: 'TrueCost',
     group: 'cost',
     summary: 'The should-cost engine: deconstructs a part into material, machine cycle, labor, logistics and fair margin, so every quote has a defensible target.',
@@ -330,6 +341,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     slug: 'cost-innovation',
+    icon: 'emoji_events',
     name: 'CostInnovation',
     group: 'cost',
     summary: 'Tracks every buyer\'s performance item by item, turning individual negotiation wins into team-wide accountability.',

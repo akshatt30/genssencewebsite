@@ -3,7 +3,7 @@ import HashLink from './HashLink';
 
 // Targets starting with "/" are product pages; the rest are home-page section ids.
 const COLS = [
-  { h: 'Platform', links: [['TrueCost Engine', '/products/truecost'], ['Sourcing360', 'sourcing'], ['Supplier Graph', 'engines'], ['Predictive Curves', 'engines'], ['Integrations & API', 'platform']] },
+  { h: 'Platform', links: [['TrueCost Engine', '/products/truecost'], ['Sourcing360', 'suite'], ['Supplier Graph', 'engines'], ['Predictive Curves', 'engines'], ['Integrations & API', 'platform']] },
   { h: 'Solutions', links: [['BOM Cost Modeling', '/products/truecost'], ['Direct Spend Analytics', '/products/spend-management'], ['Tier-N Risk Mapping', 'engines'], ['RFQ Benchmarking', '/products/rfq-management'], ['Contract Auditing', '/products/truecost']] },
   { h: 'Industries', links: [['Automotive & EV', 'industries'], ['Aerospace & Defense', 'industries'], ['Heavy Industrial', 'industries'], ['Semiconductors', 'industries'], ['Energy Systems', 'industries']] },
   { h: 'Company', links: [['About Us', 'footer'], ['Intelligence Briefs', '/products/truecost'], ['Leadership', 'footer'], ['Security Trust Center', 'industries'], ['Contact', 'demo']] }

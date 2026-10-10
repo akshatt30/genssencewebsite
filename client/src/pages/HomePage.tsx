@@ -6,7 +6,8 @@ import Hero from '../components/Hero';
 import Engines from '../components/Engines';
 import QuoteJourney from '../components/QuoteJourney';
 import Architecture from '../components/Architecture';
-import Sourcing from '../components/Sourcing';
+// Sourcing360 workflow is hidden for now (it mixes several products); kept for later use.
+// import Sourcing from '../components/Sourcing';
 import ProductSuite from '../components/ProductSuite';
 import Outcomes from '../components/Outcomes';
 import Industries from '../components/Industries';
@@ -33,9 +34,10 @@ export default function HomePage() {
           <Engines />
           <QuoteJourney seen={!!seen.gap} still={still} />
           <Architecture seen={!!seen.platform} still={still} />
-          <Sourcing seen={!!seen.sourcing} still={still} />
-          <ProductSuite />
-          <Outcomes />
+          {/* Hidden for now — re-enable with the import above:
+          <Sourcing seen={!!seen.sourcing} still={still} /> */}
+          <ProductSuite seen={!!seen.suite} still={still} />
+          <Outcomes seen={!!seen.outcomes} still={still} />
           <Industries />
           <DemoCta />
         </>

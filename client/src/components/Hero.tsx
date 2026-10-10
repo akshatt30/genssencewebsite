@@ -27,7 +27,6 @@ export default function Hero({ still }: { still: boolean }) {
       <div className="wrap">
         <div className="hero-g">
           <div>
-            <div className="rv" data-rv="hero"><span className="pill"><span className="live" />Manufacturing Intelligence Platform</span></div>
             <h1 className="h1">
               <span className="ln"><span className="ln-i">The Intelligence Layer</span></span>
               <span className="ln"><span className="ln-i">for Manufacturing</span></span>

@@ -27,7 +27,7 @@ export const STEPS: WorkflowStep[] = [
 
 export interface SuiteProduct {
   id: string; name: string; href: string; cta: string; intro: string; out: string;
-  steps: { n: number; t: string; d: string }[];
+  steps: { n: number; t: string; d: string; short: string; icon: string }[];
 }
 
 // TrueCost sample part (CNC precision turned shaft), USD per unit.
@@ -51,6 +51,14 @@ export const SAMPLE = {
   quote: 142.5
 };
 export const SAMPLE_GAP = SAMPLE.quote - BASE;
+/** TrueCost drivers for the sample part; they sum to BASE. */
+export const SAMPLE_DRIVERS = [
+  { k: 'Material', v: 54.1, c: '#00677f' },
+  { k: 'Machine', v: 28.4, c: '#00A9CE' },
+  { k: 'Labor', v: 14.2, c: '#5ad8ff' },
+  { k: 'Logistics', v: 6.1, c: '#9fb0cc' },
+  { k: 'Margin', v: 5.4, c: '#4fc486' }
+];
 export const SAMPLE_GAP_PCT = ((SAMPLE_GAP / SAMPLE.quote) * 100).toFixed(1) + '%';
 
 export const SUITE: SuiteProduct[] = [
@@ -59,11 +67,11 @@ export const SUITE: SuiteProduct[] = [
     intro: `The same ${money(SAMPLE.quote)} quote, run through TrueCost, the should-cost engine of the Genessence suite.`,
     out: `Negotiated against a ${money(BASE)} should-cost: a price you can defend, with the audit trail already written.`,
     steps: [
-      { n: 1, t: 'Quote is ingested', d: 'The quote is read and linked to the part\'s CAD and BOM. Nothing is re-keyed.' },
-      { n: 2, t: 'Live market data', d: 'Material, energy and freight are priced from live indices on the day of the quote.' },
-      { n: 3, t: 'Cost deconstruction', d: 'TrueCost rebuilds the part into material, machine cycle, labor, logistics and fair margin.' },
-      { n: 4, t: 'Target cost', d: `A ${money(BASE)} should-cost and its ${money(LO)}–${money(HI)} corridor put the quote ${SAMPLE_GAP_PCT} above target.` },
-      { n: 5, t: 'Negotiation defense', d: 'The gap is negotiated line by line with a breakdown the supplier can verify, and the rationale stays on file.' }
+      { n: 1, t: 'Quote is ingested', short: 'Ingest', icon: 'upload_file', d: 'The quote is read and linked to the part\'s CAD and BOM. Nothing is re-keyed.' },
+      { n: 2, t: 'Live market data', short: 'Price', icon: 'trending_up', d: 'Material, energy and freight are priced from live indices on the day of the quote.' },
+      { n: 3, t: 'Cost deconstruction', short: 'Deconstruct', icon: 'account_tree', d: 'TrueCost rebuilds the part into material, machine cycle, labor, logistics and fair margin.' },
+      { n: 4, t: 'Target cost', short: 'Target', icon: 'my_location', d: `A ${money(BASE)} should-cost and its ${money(LO)}–${money(HI)} corridor put the quote ${SAMPLE_GAP_PCT} above target.` },
+      { n: 5, t: 'Negotiation defense', short: 'Negotiate', icon: 'handshake', d: 'The gap is negotiated line by line with a breakdown the supplier can verify, and the rationale stays on file.' }
     ]
   }
 ];
@@ -72,7 +80,7 @@ export const NAV = [
   { id: 'engines', label: 'Intelligence', href: '#engines' },
   { id: 'journey', label: 'Quote Journey', href: '#journey' },
   { id: 'platform', label: 'Architecture', href: '#platform' },
-  { id: 'sourcing', label: 'Sourcing360', href: '#sourcing' },
+  // { id: 'sourcing', label: 'Sourcing360', href: '#sourcing' }, // section hidden for now
   { id: 'suite', label: 'Product Suite', href: '#suite' },
   { id: 'industries', label: 'Industries', href: '#industries' }
 ];
