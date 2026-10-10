@@ -30,16 +30,39 @@ export interface SuiteProduct {
   steps: { n: number; t: string; d: string }[];
 }
 
+// TrueCost sample part (CNC precision turned shaft), USD per unit.
+export const BASE = 108.2;
+export const LO = 104.8;
+export const HI = 112;
+export const MAXQ = 180;
+
+export const money = (v: number) => '$' + v.toFixed(2);
+
+/**
+ * The one quote the page follows: shown as "paid vs should-have-been" in
+ * Intelligence, walked through in the Quote Journey, and loaded into the
+ * TrueCost simulator in Products.
+ */
+export const SAMPLE = {
+  part: 'CNC Precision Turned Shaft',
+  partInline: 'CNC precision turned shaft',
+  material: '4140 Alloy Steel',
+  lot: '5,000',
+  quote: 142.5
+};
+export const SAMPLE_GAP = SAMPLE.quote - BASE;
+export const SAMPLE_GAP_PCT = ((SAMPLE_GAP / SAMPLE.quote) * 100).toFixed(1) + '%';
+
 export const SUITE: SuiteProduct[] = [
   {
     id: 'truecost', name: 'TrueCost', href: '#products', cta: 'See TrueCost in Products',
-    intro: 'The same quote, run through TrueCost, the should-cost engine of the Genessence suite.',
-    out: 'A price you can defend, with the audit trail already written.',
+    intro: `The same ${money(SAMPLE.quote)} quote, run through TrueCost, the should-cost engine of the Genessence suite.`,
+    out: `Negotiated against a ${money(BASE)} should-cost: a price you can defend, with the audit trail already written.`,
     steps: [
       { n: 1, t: 'Quote is ingested', d: 'The quote is read and linked to the part\'s CAD and BOM. Nothing is re-keyed.' },
       { n: 2, t: 'Live market data', d: 'Material, energy and freight are priced from live indices on the day of the quote.' },
       { n: 3, t: 'Cost deconstruction', d: 'TrueCost rebuilds the part into material, machine cycle, labor, logistics and fair margin.' },
-      { n: 4, t: 'Target cost', d: 'A should-cost baseline and 95% corridor show how far the quote sits from target.' },
+      { n: 4, t: 'Target cost', d: `A ${money(BASE)} should-cost and its ${money(LO)}–${money(HI)} corridor put the quote ${SAMPLE_GAP_PCT} above target.` },
       { n: 5, t: 'Negotiation defense', d: 'The gap is negotiated line by line with a breakdown the supplier can verify, and the rationale stays on file.' }
     ]
   }
@@ -66,10 +89,3 @@ export const NODES = [
 export const SECTIONS = ['hero', 'gap', 'platform', 'engines', 'sourcing', 'truecost', 'outcomes', 'industries', 'suite', 'demo'] as const;
 export type SectionKey = (typeof SECTIONS)[number];
 
-// TrueCost sample part (CNC precision turned shaft), USD per unit.
-export const BASE = 108.2;
-export const LO = 104.8;
-export const HI = 112;
-export const MAXQ = 180;
-
-export const money = (v: number) => '$' + v.toFixed(2);

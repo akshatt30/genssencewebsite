@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { SUITE } from '../lib/content';
+import { BASE, SAMPLE, SAMPLE_GAP, SUITE, money } from '../lib/content';
 
 const STATUS_QUO = [
   { t: 'Quote lands in an inbox', d: 'A PDF arrives by email and is re-keyed by hand into a buyer\'s spreadsheet.' },
@@ -30,7 +30,14 @@ export default function QuoteJourney({ seen, still }: { seen: boolean; still: bo
         <div className="sec-head center" style={{ maxWidth: 720 }}>
           <div className="eyebrow rv" data-rv="gap">The Quote Journey</div>
           <h2 className="h2 rv d1" data-rv="gap">One quote. Two very different journeys.</h2>
-          <p className="lead rv d2" data-rv="gap">Follow a single supplier quote from inbox to award: the way it is handled today, and the way it moves through Genessence.</p>
+          <p className="lead rv d2" data-rv="gap">Take the {money(SAMPLE.quote)} quote for the {SAMPLE.partInline} and follow it from inbox to award: the way it is handled today, and the way it moves through Genessence.</p>
+          <div className="jq rv d2" data-rv="gap">
+            <span><em>Quote</em><b className="num">{money(SAMPLE.quote)}</b></span>
+            <span className="jq-sep" aria-hidden="true" />
+            <span className="cy"><em>Should-cost</em><b className="num">{money(BASE)}</b></span>
+            <span className="jq-sep" aria-hidden="true" />
+            <span><em>Gap</em><b className="num">{money(SAMPLE_GAP)}</b></span>
+          </div>
         </div>
         <div className="vs">
           <div className="vs-mid rv d5" data-rv="gap"><span className="ms" aria-hidden="true">east</span></div>
@@ -43,7 +50,7 @@ export default function QuoteJourney({ seen, still }: { seen: boolean; still: bo
                   <li key={i} className="js"><span className="jn">{i + 1}</span><div><div className="li-t">{s.t}</div><div className="li-d">{s.d}</div></div></li>
                 ))}
               </ol>
-              <div className="j-out"><span className="ms" aria-hidden="true">flag</span><span>A price accepted on trust, and a variance discovered after the PO.</span></div>
+              <div className="j-out"><span className="ms" aria-hidden="true">flag</span><span>{money(SAMPLE.quote)} accepted on trust, and a {money(SAMPLE_GAP)} variance discovered after the PO.</span></div>
             </div>
           </div>
           <div className="cell rv d4" data-rv="gap">

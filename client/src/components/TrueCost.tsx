@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type ChangeEvent, type CSSProperties } from 'react';
-import { BASE, HI, LO, MAXQ, money } from '../lib/content';
+import { BASE, HI, LO, MAXQ, SAMPLE, money } from '../lib/content';
 
 const HOW = [
   { t: 'Live Market Data', d: 'Material, energy and freight are priced from live indices on the day of the quote.' },
@@ -23,7 +23,7 @@ const TIERS = [
 ];
 
 export default function TrueCost({ seen, still }: { seen: boolean; still: boolean }) {
-  const [quote, setQuote] = useState(142.5);
+  const [quote, setQuote] = useState(SAMPLE.quote);
   const [cu, setCu] = useState(still ? 1 : 0); // count-up progress 0..1
   const [bd, setBd] = useState(true);
   const raf = useRef(0);
